@@ -1,0 +1,23 @@
+#search-list .search-control {
+    display: flex;
+    justify-content: space-between;
+    aligin-items: center;
+    padding: 20px 0;
+}
+
+#search-list .search-paging {
+    display: flex;
+}
+
+#search-list .search-paging a {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 3px 8px;
+    color: black;
+    text-decoration: none;
+}
+
+#search-list .search-paging a.active {
+    background-color: black;
+    color: white;
+}
