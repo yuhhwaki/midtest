@@ -67,6 +67,7 @@
                 <button class="btn btn-sm btn-outline-secondary" type="submit">検索</button>
                 <br>
                 <a href="#">リセット</a>
+                <input type="reset" value="リセット">
             </div>          
         </div>
     </form>
