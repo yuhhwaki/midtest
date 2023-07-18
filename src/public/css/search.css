@@ -21,3 +21,11 @@
     background-color: black;
     color: white;
 }
+
+.no-border {
+    border: none;
+    outline: none;
+    /* 追加してフォーカス時の枠線も非表示にする */
+    text-decoration: underline; /* アンダーラインを追加 */
+    background-color: transparent; /* 背景色を透明にする */
+}
