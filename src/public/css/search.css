@@ -29,3 +29,8 @@
     text-decoration: underline; /* アンダーラインを追加 */
     background-color: transparent; /* 背景色を透明にする */
 }
+
+.active-page-link {
+    background-color: black;
+    color: white;
+}

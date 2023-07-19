@@ -37,9 +37,9 @@
                                 </div>
                             </div>
                             <div class="form__error">
-                                @error('name')
+                                <!-- @error('name')
                                 {{ $message }}
-                                @enderror
+                                @enderror -->
                             </div>
                         </div>
                     </div>
