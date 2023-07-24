@@ -41,25 +41,33 @@ class ContactController extends Controller
           
 
       //名前
-      if ($name){
-            $query->where('fullname', 'like', '%' . $name . '%');
+      if (isset($name)){
+            $query->orWhere('fullname', 'like', '%' . $name . '%');
       }
 
       //性別
-      if ($gender === '1' || $gender === '2') {
-          $query->where('gender', $gender);
+      if (isset($gender)&&($gender === '1' || $gender === '2')) {
+          $query->orWhere('gender', $gender);
       }
 
       //登録日
-      if ($start_date && $end_date) {
+      if (isset($start_date)) {
               // 日付範囲を指定する場合は、データベースに保存されている日付の形式に合わせてください
               // 例: 'Y-m-d'は「年-月-日」形式です
-              $query->whereBetween('created_at', [$start_date, $end_date]);
+              $query->orWhere($start_date<='created_at');
           }
 
+      //登録日
+      if (isset($end_date)) {
+              // 日付範囲を指定する場合は、データベースに保存されている日付の形式に合わせてください
+              // 例: 'Y-m-d'は「年-月-日」形式です
+              $query->orWhere($end_date>='created_at');
+          }
+
+
       // メールアドレスが指定されている場合は検索条件を追加
-          if ($email) {
-              $query->where('email', 'like', '%' . $email . '%')->get();
+          if (isset($email)) {
+              $query->orWhere('email', 'like', '%' . $email . '%')->get();
           }
 
       // ページネーションを行い、1ページにつき10件ずつのレコードを表示します。

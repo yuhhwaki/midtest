@@ -32,15 +32,15 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="option1">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="0">
                                         <label class="form-check-label" for="gender1">全て</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="option2">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="1">
                                         <label class="form-check-label" for="gender2">男性</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender3" value="option3">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender3" value="2">
                                         <label class="form-check-label" for="gender3">女性</label>
                                     </div>
                                 </div>
@@ -79,7 +79,8 @@
                         <button class="btn btn-sm btn-dark text-white" type="submit">検索</button>
                         <br>
                         <!-- <a href="#">リセット</a> -->
-                        <input type="reset" class="no-border" value="リセット">
+                        <a href="/search">リセット</a>
+
                     </div>          
                 </div>
     </form>
@@ -133,8 +134,16 @@
 							@foreach ($datas as $data)
                             <tr>
                                 <td>{{ $data->id }}</td>
-                                <td>{{ $data->name }}</td>
-                                <td>{{ $data->gender }}</td>
+                                <td>{{ $data->fullname }}</td>
+                                <td>
+                                    @if($data->gender == 1)
+                                        男性
+                                    @elseif($data->gender == 2)
+                                        女性
+                                    @else
+                                        その他
+                                    @endif
+                                </td>
                                 <td>{{ $data->email }}</td>
                                 <td>{{ $data->opinion }}</td>
                                 <td>
